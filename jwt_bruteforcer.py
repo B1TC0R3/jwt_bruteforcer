@@ -81,7 +81,7 @@ def main():
         token = token_file.read().strip()
 
     (header, payload, signature) = dissect_jwt(token)
-    digestmod                   = get_digest_modifier(args)
+    digestmod                    = get_digest_modifier(args)
 
     public_signature_component = f"{header}.{payload}"
 
