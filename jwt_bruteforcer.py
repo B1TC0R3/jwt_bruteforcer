@@ -73,7 +73,7 @@ def jwt_format(signature) -> str:
 
 
 def main():
-    token     = None
+    token = None
 
     args = get_args()
 
