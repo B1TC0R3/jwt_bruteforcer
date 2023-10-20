@@ -1,4 +1,4 @@
-# Copyright © 2023 Thomas Gingele https://github/B1TC0R3
+# Copyright © 2023 Thomas Gingele https://github.com/B1TC0R3
 
 from Crypto.Hash import HMAC, SHA256, SHA512
 from base64 import b64encode, b64decode
@@ -8,7 +8,7 @@ import argparse
 def get_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog="JWT Brute Force Script",
-        epilog="Copyright © 2023 Thomas Gingele https://github/B1TC0R3"
+        epilog="Copyright © 2023 Thomas Gingele https://github.com/B1TC0R3"
     )
 
     algorithm_group = parser.add_mutually_exclusive_group()
