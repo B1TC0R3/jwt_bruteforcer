@@ -80,10 +80,9 @@ def main():
     with open(args.token, 'r') as token_file:
         token = token_file.read().strip()
 
-    (header, payload, signature) = dissect_jwt(token)
-    digestmod                    = get_digest_modifier(args)
-
-    public_signature_component = f"{header}.{payload}"
+    digestmod = get_digest_modifier(args)
+    (header, payload, signature) = dissect_jwt(token)   
+    public_signature_component   = f"{header}.{payload}"
 
     with open(args.wordlist, 'r') as wordlist:
         while key := wordlist.readline().strip():
