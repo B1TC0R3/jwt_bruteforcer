@@ -81,13 +81,15 @@ def main():
         token = token_file.read().strip()
 
     digestmod = get_digest_modifier(args)
-    (header, payload, signature) = dissect_jwt(token)   
-    public_signature_component   = f"{header}.{payload}"
+    (header, payload, signature) = dissect_jwt(token)
+    public_signature_component = f"{header}.{payload}"
 
     with open(args.wordlist, 'r') as wordlist:
-        while key := wordlist.readline().strip():
+        while key := wordlist.readline():
+            key = key.replace('\n', '')
+
             algorithm = HMAC.new(
-                key.encode(), 
+                key.encode(),
                 public_signature_component.encode(),
                 digestmod=digestmod
             )
